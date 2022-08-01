@@ -22,7 +22,7 @@ async function run(){
         // count the link frequency with reduce
         // note if the key in your mongo document's object is named something other than link
         // then change cur.link to cur.url or whatever field name contains the urls 
-        const site =  allValues.reduce((acc, cur) => {
+        const sites =  allValues.reduce((acc, cur) => {
 
             let link = cur.link
             const { domain, topLevelDomains } = parseDomain (fromUrl(link))
@@ -33,7 +33,7 @@ async function run(){
             return acc
          }, {})
 
-        console.log(site)
+        console.log(sites)
 
     } catch(err){
         console.log(err)
